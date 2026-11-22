@@ -142,11 +142,13 @@
                                 Edit
                             </a>
 
-                            <a th:href="@{/Books/delete(bookId=${book.id})}"
-                               class="btn btn-danger btn-sm"
-                               onclick="return confirm('Are you sure you want to delete this book?');">
-                                Delete
-                            </a>
+                            <form th:action="@{/Books/delete}" method="post"
+                                  onsubmit="return confirm('Are you sure you want to delete this book?');">
+                                <input type="hidden" name="bookId" th:value="${book.id}">
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    Delete
+                                </button>
+                            </form>
 
                         </div>
                     </td>
